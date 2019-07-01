@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 // Приложение для изучения технологии доступа к БД PostgreSQL через EF
+// ===================================================================
 namespace PostgreSQL_EF_App1
 {
     class Program
