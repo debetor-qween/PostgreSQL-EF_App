@@ -19,7 +19,8 @@ namespace PostgreSQL_EF_App1
             Console.WriteLine($"Время выполнения INSERT: {((endTime - startTime)).TotalMilliseconds}");
 
 
-            DbSet<User> users = db.Users;
+            // var users = db.Users;
+            var users = db.Users.FromSql("SELECT * FROM public.\"Users\"");
             startTime = DateTime.Now;
             Console.WriteLine("\nUsers list:");
             foreach (User u in users)
@@ -31,7 +32,8 @@ namespace PostgreSQL_EF_App1
 
             // Console.ReadLine();
 
-            DbSet<Apartment> apartments = db.Apartments;
+            // var apartments = db.Apartments;
+            var apartments = db.Apartments.FromSql("SELECT * FROM public.\"Apartments\"");
             startTime = DateTime.Now;
             Console.WriteLine("\nOriginal Apartments list:");
             foreach (Apartment a in apartments)
