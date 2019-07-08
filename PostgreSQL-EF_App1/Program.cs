@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 // Приложение для изучения технологии доступа к БД PostgreSQL через EF
@@ -9,6 +10,11 @@ namespace PostgreSQL_EF_App1
         static void Main(string[] args)
         {
             DateTime startTime, endTime;
+
+            var builder = new ConfigurationBuilder();
+            // SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
+            var Configuration = builder.Build();
+            string cs = Configuration.GetConnectionString("dev");
             ApplicationContext db = new ApplicationContext();
 
             startTime = DateTime.Now;
